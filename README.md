@@ -150,3 +150,25 @@ const { register } =
 //export type(Schema) gonna to sit in generic type
 //export name(schema) gonna to sit in zodResolver(schema) like this
 ```
+
+### errors in zodResolver()
+
+it's now time to talk about how we can show the error message as a ui in screen.
+
+```javascript
+const {register, formState:{errors}} = useForm<x>({
+  mode:"all",
+  zodResolver(schema)
+})
+
+// then in component for example <TextField/> in material ui
+<TextField {...register("email")} error={!!errors.email}/> //when error is true
+```
+
+we should convert this value to a boolean , so this is pretty simple we can use double ! before the `!!errors.email`
+
+- also material ui gives us a new attribute `helperText`
+
+```javascript
+<TextField helperText={errors.message?.name} error={!!errors.message}>
+```
