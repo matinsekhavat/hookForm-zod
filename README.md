@@ -127,3 +127,10 @@ const { register } = useForm < x > { mode: "all" };
 
 <TextField {...register("")}>
 ```
+
+---
+
+### resolver in useForm()
+
+so in last lecture we talked about how our `{...register("")}` just know the intellisense
+but for better connection we need resolver
