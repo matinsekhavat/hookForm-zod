@@ -134,3 +134,19 @@ const { register } = useForm < x > { mode: "all" };
 
 so in last lecture we talked about how our `{...register("")}` just know the intellisense
 but for better connection we need resolver
+
+```javascript
+import { zodResolver } from "@hookform/resolvers";
+
+const { register } =
+  useForm <
+  x >
+  {
+    mode: "all",
+    resolver: zodResolver(schema),
+  };
+
+//x vs schema : lecture we define schema we have export name and export type
+//export type(Schema) gonna to sit in generic type
+//export name(schema) gonna to sit in zodResolver(schema) like this
+```
