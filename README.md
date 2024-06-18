@@ -107,3 +107,23 @@ The resulting Schema type will be an object type that represents the shape of th
 This type alias can then be used throughout the codebase to type-check objects that conform to the schema.
 
 By using z.infer, we can keep our type definitions in sync with the schema definition, which helps to ensure that our code is type-safe and maintainable.
+
+---
+
+now you can simply use this `x`:
+
+```javascript
+export type x =  z.infer(typeof schema)
+
+```
+
+in:
+
+```javascript
+import { x } from "./types/schema";
+const { register } = useForm < x > { mode: "all" };
+
+//now it's suggest from intellisens
+
+<TextField {...register("")}>
+```
